@@ -63,19 +63,19 @@ public:
 	//Initialize MCP with I2C address.
 	void begin(uint8_t addr = 0x65);
 
-	//Read thermocouple temperature, calculate degrees C
+	//Read thermocouple temperature, calculate degrees C.
 	float read_thermocouple();
 
-	//Read ambient temperature, calculate degrees C
+	//Read ambient temperature, calculate degrees C.
 	float read_ambient();
 
-	//Set thermocouple type and filter coefficent
+	//Set thermocouple type and filter coefficent.
 	void setConfig(thermocouple_types type, filter_coefficient coeff);
 
-	//Set internal ADC resolution
+	//Set internal ADC resolution.
 	void setResolution(adc_resolution res);
 
-	//Get status register. Short/open circuit detection, alerts 1-4
+	//Get status register. Short/open circuit detection, alerts 1-4.
 	uint8_t getStatus();
 
 protected:

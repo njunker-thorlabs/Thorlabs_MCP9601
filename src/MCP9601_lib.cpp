@@ -52,14 +52,8 @@ float Thorlabs_MCP9601::read_thermocouple()
 	Thorlabs_I2C_begin();
 	Thorlabs_I2C_write(cmd, sizeof(cmd));
 	Thorlabs_I2C_end();
-	//HAL_I2C_Master_Transmit(&_i2c_instance, (_addr << 1), cmd, sizeof(cmd), 1000);
 	
-
 	Thorlabs_I2C_read(_read_buf, sizeof(_read_buf));
-
-	//Wire.requestFrom(_addr, sizeof(_read_buf));
-	//_read_buf[0] = Wire.read();
-	//_read_buf[1] = Wire.read();
 
 	//word is least significant byte first
 	int16_t reading =  (((uint16_t) _read_buf[0]) << 8 | (uint16_t) _read_buf[1]);
@@ -78,14 +72,8 @@ float Thorlabs_MCP9601::read_ambient()
 	Thorlabs_I2C_begin();
 	Thorlabs_I2C_write(cmd, sizeof(cmd));
 	Thorlabs_I2C_end();
-	//HAL_I2C_Master_Transmit(&_i2c_instance, (_addr << 1), cmd, sizeof(cmd), 100);
 	
 	Thorlabs_I2C_read(_read_buf, sizeof(_read_buf));
-
-	//Wire.requestFrom(_addr, sizeof(_read_buf));
-	//_read_buf[0] = Wire.read();
-	//_read_buf[1] = Wire.read();
-	//HAL_I2C_Master_Receive(&_i2c_instance, (_addr << 1), _read_buf, sizeof(_read_buf), 100);
 
 	//word is most significant byte first
 	int16_t reading =  (((uint16_t) _read_buf[0]) << 8 | (uint16_t) _read_buf[1]);
