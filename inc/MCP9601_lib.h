@@ -78,6 +78,8 @@ public:
 	//Get status register. Short/open circuit detection, alerts 1-4.
 	uint8_t getStatus();
 
+	virtual ~Thorlabs_MCP9601(){}
+
 protected:
 
 	uint8_t _addr;
